@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script src="js/sdjs.js"></script>
+</head>
+<body>
+    
+
+    <canvas id="myCanvas" width="1200" height="500" style="border:1px solid #d3d3d3;">
+        Your browser does not support the HTML5 canvas tag.
+    </canvas>
+<script type="text/javascript">
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+
+    // Start, Length, Text
+    var items = [
+        [20, 150, "ACTIVE"],
+        [200, 150, "SOLDOUT"],
+        [380, 300, "AWAITING QUANTITY"],
+        [720, 300, "AWAITING PRICE"]
+    ];
+
+    drawDiagram(ctx, 0, items);
+    ctx.lineWidth = "1";
+    ctx.stroke();
+
+    var level = 1;  // start level
+
+    connectItems(ctx, items, 0, 1);
+    connectItems(ctx, items, 1, 2);
+    connectItems(ctx, items, 2, 3);
+    connectItems(ctx, items, 3, 1);
+</script>
+  
+</body>
+</html>
